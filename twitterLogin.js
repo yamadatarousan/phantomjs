@@ -15,11 +15,12 @@ console.log('ALL settings loaded, start with execution');
 page.onConsoleMessage = function(msg) {
 	console.log(msg);
 }
+
+// var username = "aiueonkon";
+// var password = "3JdjJM1u";
+
 // *******define steps that fantom sould do************ //
 steps = [
-
-	var username = "facebookersjp";
-	var password = "kaki02150807";
 
 	// step1 - open twitter login page
 	function(){
@@ -32,8 +33,8 @@ steps = [
 	function(){
 		console.log('step 2 populate and submit the login form');
 		page.evaluate(function(){
-			document.getElementsByName("session[username_or_email]")[1].value = username; //username
-			document.getElementsByName("session[password]")[1].value = password; //password
+			document.getElementsByName("session[username_or_email]")[1].value = 'aiueonkon'; //username
+			document.getElementsByName("session[password]")[1].value = 'kaki02150807'; //password
 			document.getElementsByClassName("flex-table-btn")[0].click();
 		});
 	},
@@ -44,7 +45,7 @@ steps = [
 		var result = page.evaluate(function(){
 			var pageTweets = document.getElementsByClassName('js-tweet-text');
 			var result = new Array();
-			for(var i=0; i; pageTweets.length; i++){
+			for(var i=0; i < pageTweets.length; i++){
 				result.push(pageTweets[i].innerHTML);
 			}
 			return JSON.stringfy(result);
@@ -68,3 +69,14 @@ function executeRequestsStepByStep(){
 	}
 }
 
+page.OnloadStarted = function(){
+	loadInProgress = true;
+	console.log('loading started');
+}
+page.onLoadFinished = function(){
+	LoadInprogress = false;
+	console.log('loading finished');
+}
+page.onConsoleMessage = function(msg){
+	console.log(msg);
+}
