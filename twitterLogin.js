@@ -18,9 +18,6 @@ page.onConsoleMessage = function(msg) {
 // *******define steps that fantom sould do************ //
 steps = [
 
-	var username = "facebookersjp";
-	var password = "kaki02150807";
-
 	// step1 - open twitter login page
 	function(){
 		console.log('step 1 - open twitter login page');
